@@ -31,7 +31,7 @@ def download_file(underlying, start_date, end_date, interval = "m5"):
         "-v", "true",
         "-f", "csv",
         "-dir", "data/raw/",
-        "-fn", f"{underlying}_{interval}_{start_date}_{end_date}.csv"
+        "-fn", f"{underlying}_{interval}_{start_date}_{end_date}"
     ]
     try:
         subprocess.run(cmd, check=True)
