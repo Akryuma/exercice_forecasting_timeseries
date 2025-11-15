@@ -1,5 +1,5 @@
 import subprocess
-from .config_data import valid_intervals, valid_instruments
+from .config_data import valid_intervals
 
 def download_file(underlying, start_date, end_date, interval = "m5"):
     """Download historical data
@@ -7,7 +7,7 @@ def download_file(underlying, start_date, end_date, interval = "m5"):
     Parameters
     ----------
     underlying : str
-        The underlying asset symbol (e.g., "EURUSD").
+        The underlying asset symbol (e.g., "eurusd").
     start_date : str
         The start date for the data in "YYYY-MM-DD" format.
     end_date : str
@@ -19,8 +19,6 @@ def download_file(underlying, start_date, end_date, interval = "m5"):
     underlying = underlying.lower()
     if interval not in valid_intervals:
         raise ValueError(f"Invalid interval: {interval}. Valid intervals are: {valid_intervals}")
-    if underlying not in valid_instruments:
-        raise ValueError(f"Invalid underlying: {underlying}. Valid underlyings are: {valid_instruments}")
     
     cmd = [
         "C:\\Program Files\\nodejs\\npx.cmd", "dukascopy-node",
